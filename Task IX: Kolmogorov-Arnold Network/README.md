@@ -61,11 +61,11 @@ The table below provides a granular breakdown of the architecture, highlighting 
 
 ### 5. Hybrid Quantum-Classical Flow
 
-The architecture functioned as a **Hybrid Quantum-Classical Loop**. While the non-linear transformations were offloaded to the quantum Hilbert space, the structural integrity of the Kolmogorov-Arnold Network was maintained by a classical controller.
+The architecture functions as a **Hybrid Quantum-Classical Loop**. While the non-linear transformations will be offloaded to the quantum Hilbert space, the structural integrity of the Kolmogorov-Arnold Network will be maintained by a classical controller.
 
 #### The Hybrid Function Mapping
-Each output neuron $y_j$ in the QKAN layer was calculated as:
+Each output neuron $y_j$ in the QKAN layer will be calculated as:
 
 $$y_j = \text{Aggregate}_{i=1}^{n} \left( \langle 0 \vert U^\dagger(x_i, \theta_{i,j}) \hat{Z} U(x_i, \theta_{i,j}) \vert 0 \rangle \right)$$
 
-This approach allowed the model to utilize the **exponential expressivity** of quantum states for feature extraction while leveraging **standard gradient descent** (AdamW) on a classical processor to update the circuit parameters.
+This approach allows the model to utilize the **exponential expressivity** of quantum states for feature extraction while leveraging **standard gradient descent** (AdamW) on a classical processor to update the circuit parameters.
