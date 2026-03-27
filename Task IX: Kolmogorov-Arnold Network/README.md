@@ -49,7 +49,7 @@ The table below provides a granular breakdown of the architecture, highlighting 
 | Pipeline Stage | Implementation Detail | Execution Environment | Role in KAN |
 | :--- | :--- | :--- | :--- |
 | **Data Loading** | MNIST Pixel Normalization $\mu, \sigma$ | **Classical** | Pre-processing |
-| **Input Encoding** | Angle Embedding $|\psi(x)\rangle = R_y(x)|0\rangle$ | **Hybrid** | Basis Expansion |
+| **Input Encoding** | Angle Embedding $\vert \psi(x) \rangle = R_y(x) \vert 0 \rangle$ | **Hybrid** | Basis Expansion |
 | **Edge Function** | Parametrized Unitary Evolution $U(\theta)$ | **Quantum** | Learnable $\phi_{i,j}$ |
 | **Entanglement** | CNOT Gates between Feature Qubits | **Quantum** | Multivariate Correlation |
 | **Measurement** | Pauli-Z Expectation $\langle \hat{Z} \rangle$ | **Hybrid** | Quantum-to-Classical Sink |
@@ -59,15 +59,13 @@ The table below provides a granular breakdown of the architecture, highlighting 
 
 ---
 
-### 5. Mathematical Flow and Hybrid Loop
+### 5. Hybrid Quantum-Classical Flow
 
 The architecture functioned as a **Hybrid Quantum-Classical Loop**. While the non-linear transformations were offloaded to the quantum Hilbert space, the structural integrity of the Kolmogorov-Arnold Network was maintained by a classical controller.
-
-
 
 #### The Hybrid Function Mapping
 Each output neuron $y_j$ in the QKAN layer was calculated as:
 
-$$y_j = \underbrace{\text{Aggregate}_{i=1}^{n}}_{\text{Classical}} \left( \underbrace{\langle 0 | U^\dagger(x_i, \theta_{i,j}) \hat{Z} U(x_i, \theta_{i,j}) | 0 \rangle}_{\text{Quantum Measurement}} \right)$$
+$$y_j = \text{Aggregate}_{i=1}^{n} \left( \langle 0 \vert U^\dagger(x_i, \theta_{i,j}) \hat{Z} U(x_i, \theta_{i,j}) \vert 0 \rangle \right)$$
 
 This approach allowed the model to utilize the **exponential expressivity** of quantum states for feature extraction while leveraging **standard gradient descent** (AdamW) on a classical processor to update the circuit parameters.
