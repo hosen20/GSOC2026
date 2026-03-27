@@ -22,15 +22,15 @@ $$f(x_1, \dots, x_n) = \sum_{q=1}^{2n+1} \Phi_q \left( \sum_{p=1}^n \phi_{q,p}(x
 ---
 
 ### 2. Transition to Quantum KAN (QKAN)
-The classical architecture was extended conceptually into the quantum domain. In a **Quantum Kolmogorov-Arnold Network (QKAN)**, the learnable B-spline functions on the edges were replaced by **Parametrized Quantum Circuits (PQCs)**.
+To extend the classical architecture conceptually into the quantum domain. In a **Quantum Kolmogorov-Arnold Network (QKAN)**, the learnable B-spline functions on the edges should be replaced by **Parametrized Quantum Circuits (PQCs)**.
 
 #### Quantum Architecture Sketch
-The proposed QKAN architecture followed a hybrid quantum-classical design:
+The proposed QKAN architecture follows a hybrid quantum-classical design:
 
-1. **Data Encoding:** Classical input pixels were mapped into a quantum Hilbert space using **Angle Encoding**:
+1. **Data Encoding:** Classical input image pixels will mapped into a quantum Hilbert space using **Angle Encoding**:
    $$|\psi(x)\rangle = R_y(x)|0\rangle$$
-2. **Learnable Quantum Edges:** Each edge $(i, j)$ consisted of a PQC with trainable rotation gates ($R_x, R_z$) and CNOT entangling gates.
-3. **Measurement:** The output was derived by measuring the expectation value of the Pauli-Z operator:
+2. **Learnable Quantum Edges:** Each edge $(i, j)$ consists of a PQC with trainable rotation gates ($R_x, R_z$) and CNOT entangling gates.
+3. **Measurement:** The output will derived by measuring the expectation value of the Pauli-Z operator:
    $$y_{i,j} = \langle \psi(x_i, \theta) | \hat{Z} | \psi(x_i, \theta) \rangle$$
 
 ---
@@ -39,3 +39,35 @@ The proposed QKAN architecture followed a hybrid quantum-classical design:
 * **Exponential Expressivity:** Leveraging $N$ qubits allows the network to operate in a $2^N$ dimensional feature space.
 * **Quantum Entanglement:** Multi-qubit gates allow the network to evolve features collectively.
 * **Kernel Hilbert Space:** The PQC functions as a learnable quantum kernel.
+
+---
+
+### 4. Detailed Hybrid QKAN Architecture
+
+The table below provides a granular breakdown of the architecture, highlighting the interaction between Classical (CPU/GPU) and Quantum (QPU/Simulator) resources:
+
+| Pipeline Stage | Implementation Detail | Execution Environment | Role in KAN |
+| :--- | :--- | :--- | :--- |
+| **Data Loading** | MNIST Pixel Normalization $\mu, \sigma$ | **Classical** | Pre-processing |
+| **Input Encoding** | Angle Embedding $|\psi(x)\rangle = R_y(x)|0\rangle$ | **Hybrid** | Basis Expansion |
+| **Edge Function** | Parametrized Unitary Evolution $U(\theta)$ | **Quantum** | Learnable $\phi_{i,j}$ |
+| **Entanglement** | CNOT Gates between Feature Qubits | **Quantum** | Multivariate Correlation |
+| **Measurement** | Pauli-Z Expectation $\langle \hat{Z} \rangle$ | **Hybrid** | Quantum-to-Classical Sink |
+| **Node Summation** | $y_j = \sum_{i} \text{Measurement}_i$ | **Classical** | Kolmogorov-Arnold Sum |
+| **Loss Function** | Cross-Entropy Calculation | **Classical** | Objective Evaluation |
+| **Backpropagation** | Parameter Update $\theta_{new} = \theta - \eta \nabla L$ | **Classical** | Hybrid Optimization |
+
+---
+
+### 5. Mathematical Flow and Hybrid Loop
+
+The architecture functioned as a **Hybrid Quantum-Classical Loop**. While the non-linear transformations were offloaded to the quantum Hilbert space, the structural integrity of the Kolmogorov-Arnold Network was maintained by a classical controller.
+
+
+
+#### The Hybrid Function Mapping
+Each output neuron $y_j$ in the QKAN layer was calculated as:
+
+$$y_j = \underbrace{\text{Aggregate}_{i=1}^{n}}_{\text{Classical}} \left( \underbrace{\langle 0 | U^\dagger(x_i, \theta_{i,j}) \hat{Z} U(x_i, \theta_{i,j}) | 0 \rangle}_{\text{Quantum Measurement}} \right)$$
+
+This approach allowed the model to utilize the **exponential expressivity** of quantum states for feature extraction while leveraging **standard gradient descent** (AdamW) on a classical processor to update the circuit parameters.
