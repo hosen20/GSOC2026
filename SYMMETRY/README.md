@@ -24,26 +24,26 @@ This creates a structured dataset where $x_i^\theta = R_\theta(x_i)$ and $R_\the
 
 A Variational Autoencoder (VAE) encodes images into a low-dimensional latent space:
 
-$$z \sim q_\phi(z|x), \quad z \in \mathbb{R}^d$$
+$$z \sim q_{\phi}(z|x), \quad z \in \mathbb{R}^d$$
 
-- **Encoder:** $(\mu, \log \sigma^2) = f_\phi(x)$
+- **Encoder:** $(\mu, \log \sigma^2) = f_{\phi}(x)$
 - **Sampling:** $z = \mu + \sigma \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$
-- **Decoder:** $\hat{x} = g_\omega(z)$
+- **Decoder:** $\hat{x} = g_{\omega}(z)$
 
 The loss function ensures reconstructions are accurate and the latent space is regularized:
 
-$$\mathcal{L}_{VAE} = \|x - \hat{x}\|^2 + \beta \cdot D_{KL}(q_\phi(z|x) \| \mathcal{N}(0,I))$$
+$$\mathcal{L}_{VAE} = \Vert x - \hat{x} \Vert^2 + \beta \cdot D_{KL}(q_{\phi}(z|x) \Vert \mathcal{N}(0,I))$$
 
 ---
 
 ## 3. Supervised Symmetry Learning
 
-We model rotation as a transformation $T_\psi$ (the "Rotator") in latent space:
+We model rotation as a transformation $T_{\psi}$ (the "Rotator") in latent space:
 
-$$z_{\theta+30^\circ} \approx T_\psi(z_\theta, \theta)$$
+$$z_{\theta+30^\circ} \approx T_{\psi}(z_{\theta}, \theta)$$
 
 **Training objective:**
-$$\mathcal{L}_{sym} = \|T_\psi(z_\theta, \theta) - z_{\theta+30^\circ}\|^2$$
+$$\mathcal{L}_{\text{sym}} = \Vert T_{\psi}(z_{\theta}, \theta) - z_{\theta+30^\circ} \Vert^2$$
 
 This learns how rotation acts as a continuous transformation within the compressed data.
 
@@ -51,13 +51,15 @@ This learns how rotation acts as a continuous transformation within the compress
 
 ## 4. Unsupervised Symmetry Discovery
 
-To discover symmetries without explicit pairing, we learn a transformation $z' = S_\psi(z)$. A valid symmetry must preserve the semantics of the input via two constraints:
+To discover symmetries without explicit pairing, we learn a transformation $z' = S_{\psi}(z)$. A valid symmetry must preserve the semantics of the input via two constraints:
 
-1.  **Reconstruction consistency:** $\mathcal{L}_{recon} = \|g_\omega(z) - g_\omega(S_\psi(z))\|^2$
-2.  **Logit invariance:** $C(g_\omega(z)) \approx C(g_\omega(S_\psi(z)))$, where $C$ is a pretrained classifier.
+1. **Reconstruction consistency:** $$\mathcal{L}_{\text{recon}} = \Vert g_{\omega}(z) - g_{\omega}(S_{\psi}(z)) \Vert^2$$
+
+2. **Logit invariance:** $$C(g_{\omega}(z)) \approx C(g_{\omega}(S_{\psi}(z)))$$ 
+*(where $C$ is a pretrained classifier)*
 
 **Final loss:**
-$$\mathcal{L} = \mathcal{L}_{recon} + \lambda \cdot \mathcal{L}_{logit}$$
+$$\mathcal{L} = \mathcal{L}_{\text{recon}} + \lambda \cdot \mathcal{L}_{\text{logit}}$$
 
 ---
 
