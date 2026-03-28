@@ -32,7 +32,7 @@ $$z \sim q_\phi(z|x), \quad z \in \mathbb{R}^d$$
 
 The loss function ensures reconstructions are accurate and the latent space is regularized:
 
-$$\mathcal{L}_{VAE} = \|x - \hat{x}\|^2 + \beta \cdot D_{KL}(q_\phi(z|x) \| \mathcal{N}(0,I))$$.
+$$\mathcal{L}_{VAE} = \|x - \hat{x}\|^2 + \beta \cdot D_{KL}(q_\phi(z|x) \| \mathcal{N}(0,I))$$
 
 ---
 
@@ -42,7 +42,7 @@ We model rotation as a transformation $T_\psi$ (the "Rotator") in latent space:
 
 $$z_{\theta+30^\circ} \approx T_\psi(z_\theta, \theta)$$
 
-Training objective:
+**Training objective:**
 $$\mathcal{L}_{sym} = \|T_\psi(z_\theta, \theta) - z_{\theta+30^\circ}\|^2$$
 
 This learns how rotation acts as a continuous transformation within the compressed data.
@@ -53,10 +53,10 @@ This learns how rotation acts as a continuous transformation within the compress
 
 To discover symmetries without explicit pairing, we learn a transformation $z' = S_\psi(z)$. A valid symmetry must preserve the semantics of the input via two constraints:
 
-1. **Reconstruction consistency:** $\mathcal{L}_{recon} = \|g_\omega(z) - g_\omega(S_\psi(z))\|^2$
-2. **Logit invariance:** $C(g_\omega(z)) \approx C(g_\omega(S_\psi(z)))$, where $C$ is a pretrained classifier.
+1.  **Reconstruction consistency:** $\mathcal{L}_{recon} = \|g_\omega(z) - g_\omega(S_\psi(z))\|^2$
+2.  **Logit invariance:** $C(g_\omega(z)) \approx C(g_\omega(S_\psi(z)))$, where $C$ is a pretrained classifier.
 
-Final loss:
+**Final loss:**
 $$\mathcal{L} = \mathcal{L}_{recon} + \lambda \cdot \mathcal{L}_{logit}$$
 
 ---
@@ -65,15 +65,15 @@ $$\mathcal{L} = \mathcal{L}_{recon} + \lambda \cdot \mathcal{L}_{logit}$$
 
 Using PCA to reduce the latent space to 2D reveals how the model understands the "physics" of the data:
 
-1. **Clustering:** Dots of the same color group together, proving the model recognizes that images with the same rotation angle share the same "meaning."
-2. **Continuity:** The colors flow in a rainbow sequence (red to green to blue), meaning the model understands that 10° is physically "near" 20°.
-3. **Topology:** The circular spread of colors shows the AI has "discovered" the 360-degree nature of rotation without being told the math behind it.
+* **Clustering:** Dots of the same color group together, proving the model recognizes that images with the same rotation angle share the same "meaning."
+* **Continuity:** The colors flow in a rainbow sequence (red to green to blue), meaning the model understands that 10° is physically "near" 20°.
+* **Topology:** The circular spread of colors shows the AI has "discovered" the 360-degree nature of rotation without being told the math behind it.
 
 ---
 
 ## 6. Summary
 
 This project demonstrates:
-- How VAEs learn structured latent spaces from raw pixels.
-- How rotations become smooth, predictable trajectories in latent space.
-- How unsupervised methods can recover symmetry operators by enforcing identity preservation (Logit Stability).
+* How VAEs learn structured latent spaces from raw pixels.
+* How rotations become smooth, predictable trajectories in latent space.
+* How unsupervised methods can recover symmetry operators by enforcing identity preservation (Logit Stability).
