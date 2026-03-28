@@ -20,13 +20,7 @@ $$
 \theta \in \{0^\circ, 30^\circ, 60^\circ, \dots, 330^\circ\}
 $$
 
-This creates a structured dataset where:
-
-$$
-x_i^\theta = R_\theta(x_i)
-$$
-
-and \(R_\theta\) is a 2D rotation operator.
+This creates a structured dataset where $x_i^\theta = R_\theta(x_i)$ and $R_\theta$ is a 2D rotation operator.
 
 ---
 
@@ -34,38 +28,21 @@ and \(R_\theta\) is a 2D rotation operator.
 
 A Variational Autoencoder (VAE) encodes images into a low-dimensional latent space:
 
-$$
-z \sim q_{\phi}(z|x), \quad z \in \mathbb{R}^d
-$$
+$$z \sim q_{\phi}(z|x), \quad z \in \mathbb{R}^d$$
 
-- **Encoder:**
-$$
-(\mu, \log \sigma^2) = f_{\phi}(x)
-$$
+- **Encoder:** $(\mu, \log \sigma^2) = f_{\phi}(x)$
+- **Sampling:** $z = \mu + \sigma \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$
+- **Decoder:** $\hat{x} = g_{\omega}(z)$
 
-- **Sampling:**
-$$
-z = \mu + \sigma \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)
-$$
+The loss function ensures reconstructions are accurate and the latent space is regularized:
 
-- **Decoder:**
-$$
-\hat{x} = g_{\omega}(z)
-$$
-
-The loss function is:
-
-$$
-\mathcal{L}_{VAE} =
-\|x - \hat{x}\|^2 +
-\beta \cdot D_{KL}\big(q_{\phi}(z|x)\,\|\,\mathcal{N}(0,I)\big)
-$$
+$$\mathcal{L}_{VAE} = \Vert x - \hat{x} \Vert^2 + \beta \cdot D_{KL}(q_{\phi}(z|x) \Vert \mathcal{N}(0,I))$$
 
 ---
 
 ## 3. Supervised Symmetry Learning
 
-We model rotation as a transformation \(T_{\psi}\) (the "Rotator") in latent space:
+We model rotation as a transformation $T_{\psi}$ (the "Rotator") in latent space:
 
 $$
 z_{\theta+30^\circ} \approx T_{\psi}(z_{\theta}, \theta)
