@@ -78,7 +78,7 @@ $$
 
 ### (2) Logit invariance
 
-Let \(C(\cdot)\) be a pretrained classifier:
+Let C be a pretrained classifier:
 
 $$
 C(g_{\omega}(z)) \approx C(g_{\omega}(S_{\psi}(z)))
