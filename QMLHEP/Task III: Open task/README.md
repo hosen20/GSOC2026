@@ -1,4 +1,5 @@
-Task III: Open Task
+# Task III: Open Task
+
 Quantum computing fascinates me because it challenges the classical limits of computation by exploiting superposition and entanglement. In classical machine learning, we rely on vector spaces and linear algebra, but quantum systems naturally live in Hilbert spaces, which are exponentially larger. This opens the possibility of encoding and processing information in ways that classical systems cannot efficiently replicate.
 
 On the software side, I’ve worked with PennyLane, which is designed for hybrid quantum-classical workflows. I appreciate how it integrates seamlessly with PyTorch and TensorFlow, letting me build differentiable quantum circuits and train them alongside classical neural networks. This is particularly useful for quantum machine learning tasks like variational classifiers or quantum GANs.
