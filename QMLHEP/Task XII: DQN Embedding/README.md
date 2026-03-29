@@ -41,7 +41,7 @@ Where:
 The model was tested across different circuit depths and qubit counts. The following table summarizes the average loss (MSE) achieved at the end of training for four specific configurations:
 
 | Configuration | Qubits ($n$) | Layers ($L$) | Final Avg Loss (MSE) | (MSE) previous neural network task |
-| :--- | :---: | :---: | :---: | :---: }
+| :--- | :---: | :---: | :---: | :---: |
 | **Case A** | 4 | 1 | 0.005236 | 0.586 |
 | **Case B** | 4 | 2 | 0.038882 | 0.336 |
 | **Case C** | 8 | 1 | 0.031425 | 0.557 |
