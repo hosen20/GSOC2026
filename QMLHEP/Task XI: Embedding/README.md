@@ -34,10 +34,10 @@ The circuit uses a layered approach where each layer $L$ consists of:
 ## Performance Summary
 | Configuration | Qubits | Embedding Layers | Final MSE Loss |
 | :--- | :---: | :---: | :--- |
-| **Case A** | 4 | 1 | [Insert Value] |
-| **Case B** | 4 | 2 | [Insert Value] |
-| **Case C** | 5 | 1 | [Insert Value] |
-| **Case D** | 5 | 2 | [Insert Value] |
+| **Case A** | 4 | 1 | [0.586] |
+| **Case B** | 4 | 2 | [0.336] |
+| **Case C** | 5 | 1 | [0.557] |
+| **Case D** | 5 | 2 | [0.361] |
 
 ---
 
