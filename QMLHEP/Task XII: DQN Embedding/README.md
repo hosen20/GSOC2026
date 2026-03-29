@@ -40,14 +40,14 @@ Where:
 
 The model was tested across different circuit depths and qubit counts. The following table summarizes the average loss (MSE) achieved at the end of training for four specific configurations:
 
-| Configuration | Qubits ($n$) | Layers ($L$) | Final Avg Loss (MSE) |
-| :--- | :---: | :---: | :---: |
-| **Case A** | 4 | 1 | 0.0421 |
-| **Case B** | 4 | 2 | 0.0285 |
-| **Case C** | 8 | 1 | 0.0512 |
-| **Case D** | 8 | 2 | 0.0198 |
+| Configuration | Qubits ($n$) | Layers ($L$) | Final Avg Loss (MSE) | (MSE) previous neural network task |
+| :--- | :---: | :---: | :---: | :---: }
+| **Case A** | 4 | 1 | 0.005236 | 0.586 |
+| **Case B** | 4 | 2 | 0.038882 | 0.336 |
+| **Case C** | 8 | 1 | 0.031425 | 0.557 |
+| **Case D** | 8 | 2 | 0.036163 | 0.361 |
 
-> **Pro-Tip:** Increasing the number of layers ($L$) generally improves the "expressivity" of the quantum circuit, allowing the RL agent to find more precise shifts to match the input data $X$.
+> **Pro-Tip:** Increasing the number of layers ($L$) generally improves the "expressivity" of the quantum circuit "but not always or in all runs", allowing the RL agent to find more precise shifts to match the input data $X$.
 
 ---
 
