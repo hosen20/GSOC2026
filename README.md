@@ -11,7 +11,7 @@
 ---
 
 ## 📌 Quick note
-**Applied projects:** I have applied to two ML4Sci projects — *Semi‑supervised Symmetry Discovery* and *Quantum Reinforcement Learning for High Energy Physics* — and I completed **13 organizer test tasks**. 12 tasks for QMLHEP and the 1 required task for SYMMETRY (with its subparts 1, 2 and 3) 
+**Applied projects:** I have applied to two ML4Sci projects — *Semi‑supervised Symmetry Discovery* and *Quantum Reinforcement Learning for High Energy Physics* — and I completed **13 organizer test tasks**. 12 tasks for QMLHEP and 1 task for SYMMETRY (with its subparts 1, 2 and 3) 
 
 ---
 
@@ -26,9 +26,10 @@ I applied to ML4Sci because I want to contribute machine learning and QML soluti
 ---
 
 ## 🔗 How this project aligns with ML4Sci goals
-This repository and the proposed work align with ML4Sci priorities in two concrete ways:
+This repository and the proposed work align with ML4Sci priorities in three concrete ways:
 
 - **Scientific impact** — discovering symmetries in detector representations helps build models that generalize better and require fewer labeled examples, directly supporting efficient analysis of HL‑LHC scale data.  
 - **Cross‑disciplinary innovation** — the project combines physics knowledge, semi‑supervised learning, and equivariant modeling; the companion Quantum RL proposal explores quantum methods for compute and sample efficiency, showing commitment to exploring multiple promising directions for ML4Sci.
+
 ---
 
