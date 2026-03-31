@@ -6,8 +6,11 @@
 **CV:** https://drive.google.com/file/d/1OW_j2Ujq1__eIXrMhI8o2QiBxyAon9MI/view?usp=sharing
 
 **Relevant Projects (deep learning, reinforcement learning, quantum machine learning):**
+
 QML: https://github.com/hosen20/The_Detection_Duo_Old
+
 YOLO: https://medium.com/@hussein.shiri73/kyc-verification-with-yolo-4c455ae34e74
+
 RL: https://github.com/hosen20/reinforcement_learning_taxi_route_optimization_project
 
 > Compact, reproducible code for solving the tasks of two projects QMLHEP and SYMMETRY
