@@ -3,7 +3,7 @@
 **Author:** Hussein Shiri  
 **Email:** hussein.y.shiri18@gmail.com  
 **GitHub:** https://github.com/hosen20/GSOC2026  
-**CV:** https://drive.google.com/file/d/1OW_j2Ujq1__eIXrMhI8o2QiBxyAon9MI/view?usp=sharing
+**CV:** https://drive.google.com/file/d/1RxIgfcwCiImCOillRiA_UM3EUfCKpwXM/view?usp=sharing
 
 **Relevant Projects (deep learning, reinforcement learning, quantum machine learning):**
 
