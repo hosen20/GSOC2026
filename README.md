@@ -4,6 +4,7 @@
 **Email:** hussein.y.shiri18@gmail.com  
 **GitHub:** https://github.com/hosen20/GSOC2026  
 **CV:** https://drive.google.com/file/d/1RxIgfcwCiImCOillRiA_UM3EUfCKpwXM/view?usp=sharing
+(Kindly use this CV instead of the one in the application)
 
 **Relevant Projects (deep learning, reinforcement learning, quantum machine learning):**
 
