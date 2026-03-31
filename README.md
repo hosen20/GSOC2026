@@ -3,6 +3,7 @@
 **Author:** Hussein Shiri  
 **Email:** hussein.y.shiri18@gmail.com  
 **GitHub:** https://github.com/hosen20/GSOC2026
+**CV:** https://drive.google.com/file/d/1OW_j2Ujq1__eIXrMhI8o2QiBxyAon9MI/view?usp=sharing
 
 > Compact, reproducible code for solving the tasks of two projects QMLHEP and SYMMETRY
 
